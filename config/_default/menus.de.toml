@@ -1,0 +1,36 @@
+[[main]]
+name = "Beiträge"
+pageRef = "/posts"
+weight = 10
+
+[[main]]
+name = "Fotos"
+pageRef = "/fotos"
+weight = 15
+
+[[main]]
+name = "Links"
+pageRef = "/links"
+weight = 20
+
+[[main]]
+name = "Kontakt"
+pageRef = "/kontakt"
+weight = 30
+
+[[main]]
+name = "Kontaktformular"
+pageRef = "/kontakt"
+parent = "Kontakt"
+weight = 31
+
+[[main]]
+name = "Anmeldung"
+pageRef = "/mitgliederanmeldung"
+parent = "Kontakt"
+weight = 32
+
+[[main]]
+name = "Impressum"
+pageRef = "/impressum"
+weight = 33

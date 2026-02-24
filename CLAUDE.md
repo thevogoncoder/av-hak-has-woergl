@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Hugo static site with Decap CMS (formerly Netlify CMS) for content management, deployed on Netlify. Simplified from the original "One-click Hugo CMS" template — webpack, custom CSS, and JS tooling have been removed.
+Hugo static site for AV HAK/HAS Wörgl using the **Blowfish** theme (git submodule), with **Decap CMS** for content management, deployed on **Netlify**.
 
 ## Commands
 
@@ -19,30 +19,36 @@ npx decap-server                                               # CMS local proxy
 hugo --gc --minify          # Production build (output: public/)
 ```
 
-No npm/yarn dependencies, linting, or test suite — those were removed from the original template.
+No npm/yarn dependencies, linting, or test suite.
 
 ## Architecture
 
 - **Hugo 0.156.0** generates static HTML from Markdown content
-- **Decap CMS 3.0.0** provides a browser-based editor at `/admin/` (loaded from CDN)
-- **Netlify Identity + Git Gateway** handles CMS authentication and commits
-- **Dev Container** provides Hugo Extended + Node.js LTS environment
+- **Blowfish theme v2.98.0** — git submodule in `themes/blowfish/`, provides all base templates and Tailwind CSS styling
+- **Decap CMS 3.0.0** — browser-based editor at `/admin/` (loaded from CDN)
+- **Netlify Identity + Git Gateway** — handles CMS authentication and commits
+- **Dev Container** — Hugo Extended + Node.js LTS environment
 
 ### Key Paths
 
 | Path | Purpose |
 |------|---------|
+| `config/_default/` | Hugo configuration split across `hugo.toml`, `params.toml`, `languages.en.toml`, `menus.en.toml`, `markup.toml` |
 | `content/` | Markdown content (homepage `_index.md`, blog posts in `posts/`) |
-| `layouts/` | Hugo templates (`_default/baseof.html` is the base, `index.html` is homepage) |
-| `static/admin/` | Decap CMS interface (`index.html`) and config (`config.yml`) |
+| `layouts/partials/` | **Only custom templates** — `extend-head.html` (Netlify Identity widget) and `extend-footer.html` (CMS login redirect) |
+| `themes/blowfish/` | Git submodule — all base templates, styles, shortcodes |
+| `static/admin/` | Decap CMS interface (`index.html`) and collection config (`config.yml`) |
 | `static/img/` | Image uploads managed by CMS |
-| `hugo.toml` | Hugo configuration |
 | `netlify.toml` | Netlify build settings and deploy contexts |
+
+### Theme Customization
+
+The site inherits everything from Blowfish and only overrides two partials:
+- `layouts/partials/extend-head.html` — injects Netlify Identity widget script
+- `layouts/partials/extend-footer.html` — redirects authenticated users to `/admin/`
+
+Theme configuration (color scheme, homepage layout, dark mode, search, etc.) is controlled via `config/_default/params.toml`.
 
 ### Content Model
 
 Posts live in `content/posts/` with slug pattern `YYYY-MM-DD-{slug}.md`. Fields: title, date, draft, body. The CMS collection config is in `static/admin/config.yml`.
-
-### Template Hierarchy
-
-`baseof.html` wraps all pages (includes Netlify Identity widget for CMS login). `single.html` renders individual posts, `list.html` renders archive pages, `index.html` renders the homepage.

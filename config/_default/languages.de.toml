@@ -1,0 +1,12 @@
+languageCode = "de"
+languageName = "Deutsch"
+weight = 1
+title = "Absolventenverein HAK/HAS Wörgl"
+
+[params]
+displayName = "DE"
+isoCode = "de"
+dateFormat = "2. January 2006"
+logo = "img/logo.png"
+description = "Der Absolventenverein der HAK/HAS Wörgl bietet eine Plattform für ehemalige Schüler, um in Kontakt zu bleiben, sich auszutauschen und gemeinsam Veranstaltungen zu organisieren."
+copyright = "© { year } Absolventenverein HAK/HAS Wörgl. Alle Rechte vorbehalten."
