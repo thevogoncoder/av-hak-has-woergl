@@ -1,7 +1,7 @@
 ---
 title: Neue Homepage
 date: 2026-02-27T22:28:00.000+01:00
-draft: false
+draft: true
 ---
 {{< timeline >}}
 
