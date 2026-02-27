@@ -43,4 +43,4 @@ Alois, Birgit, Harald, Martin, Maik & Susi
 
 Hier noch ein paar Impressionen:
 
-![Feldthurns](Feldthurns.jpg) ![Kostenweg Richtung Kloster Säben](Kloster-Saeben.jpg) ![Villanders – eingekehrt beim Larmhof](Larmhof-Villanders.jpg)
+{{< carousel images="{Feldthurns.jpg,featured-Kloster-Saeben.jpg,Larmhof-Villanders.jpg}" captions="{Feldthurns.jpg:Feldthurns,featured-Kloster-Saeben.jpg:Kostenweg Richtung Kloster Säben,Larmhof-Villanders.jpg:Villanders – eingekehrt beim Larmhof}" >}}
