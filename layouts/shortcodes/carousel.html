@@ -3,8 +3,7 @@
 {{ $aspectx := default "16" (index $aspect  0) }}
 {{ $aspecty := default "9" (index $aspect  1) }}
 {{ $interval := default "2000" (.Get "interval") }}
-{{ $maxSize := default "1200" (.Get "maxSize") }}
-{{ $processSpec := printf "fit %sx%s webp" $maxSize $maxSize }}
+{{ $maxSize := .Get "maxSize" }}
 {{ $page := .Page.Resources }}
 {{ $imagesTemp := .Get "images" }}
 {{ $imagesTemp = strings.TrimPrefix "{" $imagesTemp }}
@@ -85,7 +84,8 @@
       style="transition-duration: {{ $interval }}ms;"
       {{ if eq $index 0 }}data-twe-carousel-active{{ end }}>
         <div class="single_hero_background relative overflow-hidden" style="aspect-ratio: {{ $aspectx }} / {{ $aspecty }};">
-          {{ $img := $resource.Filter images.AutoOrient (images.Process $processSpec) }}
+          {{ $img := $resource }}
+          {{ with $maxSize }}{{ $img = $resource.Filter images.AutoOrient (images.Process (printf "fit %sx%s webp" . .)) }}{{ end }}
           <img
             src="{{ $img.RelPermalink }}"
             class="block absolute top-0 object-cover w-full h-full not-prose nozoom"

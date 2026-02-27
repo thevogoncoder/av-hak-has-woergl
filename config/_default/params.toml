@@ -2,6 +2,7 @@ colorScheme = "blowfish"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
 
+mainSections = ["posts"]
 enableSearch = true
 enableCodeCopy = true
 defaultBackgroundImage = "img/background.png"

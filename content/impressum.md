@@ -4,7 +4,7 @@ showDate: false
 showTableOfContents: false
 showReadingTime: false
 showWordCount: false
-_build:
+build:
   list: never
 ---
 

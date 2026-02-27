@@ -33,3 +33,8 @@
 {{ if templates.Exists "partials/homepage-cta.html" }}
   {{ partial "homepage-cta.html" . }}
 {{ end }}
+
+{{/* Sponsor banner */}}
+{{ if templates.Exists "partials/homepage-sponsors.html" }}
+  {{ partial "homepage-sponsors.html" . }}
+{{ end }}

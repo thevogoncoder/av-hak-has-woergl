@@ -1,3 +1,4 @@
 ---
 title: "Fotos"
+cardView: false
 ---

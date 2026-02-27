@@ -1,7 +1,6 @@
 {{ $id := delimit (slice "gallery" (partial "functions/uid.html" .)) "-" -}}
 {{ $content := .Inner -}}
-{{ $maxSize := default "1200" (.Get "maxSize") -}}
-{{ $processSpec := printf "fit %sx%s webp" $maxSize $maxSize -}}
+{{ $maxSize := .Get "maxSize" -}}
 
 {{/* find all img tags */}}
 {{ range findRE `<img\s+[^>]*>` $content -}}
@@ -13,12 +12,12 @@
     {{ $srcValueFinal := $srcValue -}}
 
     {{ if or (hasPrefix $srcValue "http://") (hasPrefix $srcValue "https://") -}}
-      {{ with resources.GetRemote $srcValue -}}{{ $srcValueFinal = (.Filter images.AutoOrient (images.Process $processSpec)).RelPermalink -}}{{ end -}}
+      {{ with resources.GetRemote $srcValue -}}{{ $r := . -}}{{ $srcValueFinal = $r.RelPermalink -}}{{ with $maxSize }}{{ $srcValueFinal = ($r.Filter images.AutoOrient (images.Process (printf "fit %sx%s webp" . .))).RelPermalink -}}{{ end -}}{{ end -}}
     {{ else -}}
       {{ with $.Page.Resources.GetMatch $srcValue -}}
-        {{ $srcValueFinal = (.Filter images.AutoOrient (images.Process $processSpec)).RelPermalink -}}
+        {{ $r := . -}}{{ $srcValueFinal = $r.RelPermalink -}}{{ with $maxSize }}{{ $srcValueFinal = ($r.Filter images.AutoOrient (images.Process (printf "fit %sx%s webp" . .))).RelPermalink -}}{{ end -}}
       {{ else -}}
-        {{ with resources.GetMatch $srcValue -}}{{ $srcValueFinal = (.Filter images.AutoOrient (images.Process $processSpec)).RelPermalink -}}{{ end -}}
+        {{ with resources.GetMatch $srcValue -}}{{ $r := . -}}{{ $srcValueFinal = $r.RelPermalink -}}{{ with $maxSize }}{{ $srcValueFinal = ($r.Filter images.AutoOrient (images.Process (printf "fit %sx%s webp" . .))).RelPermalink -}}{{ end -}}{{ end -}}
       {{ end -}}
     {{ end -}}
 

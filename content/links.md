@@ -5,7 +5,7 @@ showTableOfContents: false
 showPagination: false
 showReadingTime: false
 showWordCount: false
-_build:
+build:
   list: never
 ---
 

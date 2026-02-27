@@ -4,7 +4,7 @@ showDate: false
 showTableOfContents: false
 showReadingTime: false
 showWordCount: false
-_build:
+build:
   list: never
 ---
 
@@ -14,8 +14,7 @@ Haben Sie Anregungen oder möchten Sie Ihre E-Mail-Adresse bekanntgeben bzw. akt
 
 ## Kontaktformular
 
-<iframe src="https://formular.vereinsplaner.com/embed/6b8bbfcb-f0e6-46cc-98a5-d47c99ffa56a" style="width: 824px; height: 800px; border: none"></iframe>
-<!-- <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-4 space-y-4">
+<form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-4 space-y-4">
   <p class="hidden">
     <label>Nicht ausfüllen: <input name="bot-field" /></label>
   </p>
@@ -39,4 +38,4 @@ Haben Sie Anregungen oder möchten Sie Ihre E-Mail-Adresse bekanntgeben bzw. akt
     <button type="submit"
       class="rounded bg-primary-600 px-6 py-2 font-bold text-white hover:bg-primary-500 transition-colors">Absenden</button>
   </p>
-</form> -->
+</form>

@@ -1,0 +1,31 @@
+{{/* Sponsor banner – shows logo with dark/light mode support.
+     For each sponsor provide:
+       - logo      : path under /img/ for light mode (transparent bg, dark text)
+       - logoDark  : path under /img/ for dark mode  (transparent bg, light text)
+       - url       : sponsor website
+       - name      : alt text / sponsor name
+*/}}
+{{ $sponsors := slice
+  (dict
+    "name"     "Vendoc – Die Unternehmens-Software, die mehr kann!"
+    "logo"     "/img/vendoc-logo.webp"
+    "logoDark" "/img/vendoc-logo-dark.webp"
+    "url"      "https://www.kufgem.at/vendoc-erp"
+  )
+}}
+
+{{ if $sponsors }}
+<div class="mt-12 flex flex-wrap justify-center items-center gap-8">
+  {{ range $sponsors }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+       class="inline-block transition-opacity hover:opacity-80">
+      {{/* Light mode */}}
+      <img src="{{ .logo }}" alt="{{ .name }}"
+           class="h-12 w-auto nozoom dark:hidden" />
+      {{/* Dark mode */}}
+      <img src="{{ .logoDark }}" alt="{{ .name }}"
+           class="h-12 w-auto nozoom hidden dark:block" />
+    </a>
+  {{ end }}
+</div>
+{{ end }}
