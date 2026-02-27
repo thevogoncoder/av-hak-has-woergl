@@ -9,23 +9,13 @@ build:
   list: never
 ---
 
-<style>
-  .max-w-prose { max-width: 824px; }
-  .embed-frame {
-    border: 1px solid rgba(150, 150, 150, 0.3);
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-  }
-</style>
+<style>.max-w-prose { max-width: 824px; }</style>
 
 Anmeldung als Mitglied und zum **"Hermes aktuell"**. Der jährliche Mitgliedsbeitrag beträgt **€ 10,--**.
 
 Felder mit \* sind Pflichtfelder.
 
-<div class="embed-frame">
-<iframe src="https://formular.vereinsplaner.com/embed/6b8bbfcb-f0e6-46cc-98a5-d47c99ffa56a" style="width: 100%; max-width: 824px; height: 1400px; border: none; display: block"></iframe>
-</div>
+<iframe src="https://formular.vereinsplaner.com/embed/6b8bbfcb-f0e6-46cc-98a5-d47c99ffa56a" style="width: 100%; max-width: 824px; height: 1400px; display: block" class="rounded-lg shadow-lg border border-neutral-300 dark:border-neutral-600 overflow-hidden"></iframe>
 <!-- <form name="mitgliederanmeldung" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-4 space-y-4">
   <p class="hidden">
     <label>Nicht ausfüllen: <input name="bot-field" /></label>

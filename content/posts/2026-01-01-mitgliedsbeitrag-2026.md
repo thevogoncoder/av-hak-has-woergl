@@ -17,6 +17,17 @@ Einige Mitgliedsbeiträge sind bereits auf dem Vereinskonto eingegangen, vielen 
 
 Handybanker können den QR-Code für die Überweisung nutzen. Evt. kommt ein Fehlerhinweis bezüglich des nicht übereinstimmenden Empfängernamens. Ist aber von mir getestet und funktioniert.
 
-{{< figure src="zahlcode-2026.png" alt="QR-Code für Überweisung Mitgliedsbeitrag 2026" class="qr-code" >}}
+{{< qr title="In der Bank App scannen" alt="In der Bank App scannen" class="nozoom rounded-lg shadow-lg">}}
+BCD
+002
+1
+SCT
+SPKUAT22XXX
+Absolventenverein der Bundeshandelsakademie und Bundeshandelsschule
+AT102050600100004233
+EUR10
 
+MB2026
+
+{{< /qr >}}
 Besten Dank - euer Vereinskassier Reinhard Thaler
