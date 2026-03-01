@@ -18,7 +18,6 @@ build:
 | Kassier-Stv.         | Regina HASELSBERGER             |
 | Schriftführerin      | Maria RINGLER                   |
 | Schriftführerin-Stv. | Michaela MADER                  |
-| Beiräte              | Peter MARKSTEINER               |
 | Kassaprüfer          | Manfred LANG, Hannes WUKOWITSCH |
 
 ## Kontakt
