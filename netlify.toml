@@ -4,6 +4,7 @@
 
 [build.environment]
   HUGO_VERSION = "0.156.0"
+  SECRETS_SCAN_OMIT_PATHS = "themes/blowfish/**"
 
 [context.deploy-preview]
   command = "git submodule update --init --recursive && hugo --gc --minify --buildFuture -b \"$DEPLOY_PRIME_URL\""
