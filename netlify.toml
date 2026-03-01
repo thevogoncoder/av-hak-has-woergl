@@ -1,3 +1,8 @@
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+
 [build]
   command = "git submodule update --init --recursive && hugo --gc --minify"
   publish = "public"
