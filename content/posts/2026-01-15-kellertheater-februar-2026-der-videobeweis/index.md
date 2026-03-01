@@ -2,6 +2,7 @@
 title: "Kellertheater Februar 2026 - Der Videobeweis"
 date: 2026-01-15
 draft: false
+hideFromHomeAfter: 2026-02-22
 featureImageCaption: "Foto: [Kellertheater Innsbruck](https://kellertheater.at)"
 heroStyle: "background"
 ---
