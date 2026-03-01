@@ -3,6 +3,7 @@ title: Herbstfahrt 2026
 date: 2026-02-28T20:19:00.000+01:00
 draft: false
 heroStyle: "background"
+tags: ["Veranstaltung"]
 ---
 
 Liebe Reisefreunde!
