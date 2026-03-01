@@ -70,6 +70,33 @@ Photo galleries use the Blowfish `{{</* gallery */>}}` shortcode with `<img>` ta
 
 The CMS collection config is in `static/admin/config.yml` — update this when adding new content fields.
 
+## Post Types
+
+There are two kinds of posts published on the website: **events** and **general posts**.
+
+### All Posts
+
+- Always use `heroStyle: "background"` in the front matter unless otherwise instructed.
+- If a single image is provided, use it as the `featured` image for the post.
+- If multiple images are provided, use the first as `featured` and add a `{{</* carousel */>}}` shortcode at the end of the post (unless otherwise instructed).
+- Use `<!--more-->` as the summary divider.
+- When a reference text or document is given, use the provided text as closely as possible (fixing typos is fine), but **do not** replicate its styling — fit the content into the site's Markdown/shortcode conventions instead.
+
+### Events
+
+- Add the tag `Veranstaltung` to all event posts.
+- Add `hideFromHomeAfter: <event_date + 1 week>` to the front matter (unless otherwise instructed).
+- If the event has an itinerary, consider using the `timeline` shortcode to display it.
+- Add a registration form at the end of the post if appropriate (e.g. the event requires sign-up). When adding a form:
+  - Follow the Netlify Forms patterns (honeypot + reCAPTCHA, see below).
+  - **Also create an email notification** for that specific form on Netlify (see Form Notifications below):
+    - Recipient: `sekretariat@hak-woergl.at` (unless otherwise instructed)
+    - Subject: `[AV] Neue Anmeldung für %{formName}` (unless otherwise instructed)
+
+### General Posts
+
+No additional requirements beyond the common rules above.
+
 ## Netlify-Specific Patterns
 
 ### Forms
@@ -79,6 +106,27 @@ Netlify detects forms at deploy time via the `data-netlify="true"` attribute. Tw
 - **reCAPTCHA**: Add `<div data-netlify-recaptcha="true"></div>` inside the form for built-in captcha.
 
 See `content/mitgliederanmeldung/index.md` for the full working example with both honeypot and reCAPTCHA.
+
+### Form Notifications
+
+Email notifications per form are managed via the Netlify API (not exposed in the MCP server). Auth token is stored in `~/.netlify/config.json` after `netlify login`. Form IDs can be retrieved via the MCP `get-forms-for-project` tool.
+
+```bash
+curl -s -X POST "https://api.netlify.com/api/v1/hooks" \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "site_id": "10744c26-5ad0-45f4-b062-5c744d395b4f",
+    "form_id": "<form-id>",
+    "type": "email",
+    "event": "submission_created",
+    "data": {
+      "email": "<recipient>"
+    }
+  }'
+```
+
+`form_id` must be at the top level (not inside `data`) for per-form scoping to work.
 
 ### Image Processing
 
