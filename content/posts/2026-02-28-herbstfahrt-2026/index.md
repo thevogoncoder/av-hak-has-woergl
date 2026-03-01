@@ -55,14 +55,14 @@ Falls jemand den Wellnessbereich im Hotel nutzen möchte: Extrakosten von € 16
 
 Wir freuen uns auf eine rege Teilnahme!
 
-> [!Note] Anmeldung
-> bis **spätestens Freitag, 13. März 2026** online oder +43 50 902 830 (Sekretariat)
->
-> **Achtung!!!** Die Anmeldung ist erst gültig mit einer Anzahlung von € 100,00 pro Person auf das Konto IBAN AT10 2050 6001 0000 4233 Absolventenverein der Bundeshandelsakademie Wörgl
-
 ---
 
-## Anmeldeformular
+## Anmeldung
+
+> [!Note] bis **spätestens Freitag, 13. März 2026**
+> online oder +43 50 902 830 (Sekretariat)
+>
+> **Achtung!!!** Die Anmeldung ist erst gültig mit einer Anzahlung von € 100,00 pro Person auf das Konto IBAN AT10 2050 6001 0000 4233 Absolventenverein der Bundeshandelsakademie Wörg
 
 <form name="herbstfahrt-2026" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-4 space-y-4">
   <p class="hidden">
