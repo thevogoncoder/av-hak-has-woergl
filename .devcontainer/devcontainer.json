@@ -11,7 +11,8 @@
     },
     "ghcr.io/devcontainers-extra/features/apt-packages:1": {
       "packages": "imagemagick"
-    }
+    },
+     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "forwardPorts": [1313, 8081],
   "portsAttributes": {

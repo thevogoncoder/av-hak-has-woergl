@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:gohugo.io)",
+      "WebFetch(domain:containers.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:decapcms.org)",
+      "Bash(hugo version:*)",
+      "WebFetch(domain:blowfish.page)",
+      "Bash(git:*)",
+      "WebFetch(domain:www.av-hakhas-woergl.at)"
+    ]
+  }
+}
