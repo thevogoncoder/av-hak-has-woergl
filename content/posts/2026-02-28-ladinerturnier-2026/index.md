@@ -42,12 +42,12 @@ Wir freuen uns auf eine zahlreiche Teilnahme!
     <legend class="font-bold px-1">Spieler/in 1</legend>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <p class="my-0">
-        <label class="block font-bold mb-1" for="vorname1">Vorname *</label>
+        <label class="block font-bold mb-1" for="vorname1">Vorname 1 *</label>
         <input type="text" id="vorname1" name="spieler1_vorname" required
           class="w-full rounded border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 px-3 py-2 text-neutral-900 dark:text-neutral-100" />
       </p>
       <p class="my-0">
-        <label class="block font-bold mb-1" for="nachname1">Nachname *</label>
+        <label class="block font-bold mb-1" for="nachname1">Nachname 1 *</label>
         <input type="text" id="nachname1" name="spieler1_nachname" required
           class="w-full rounded border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 px-3 py-2 text-neutral-900 dark:text-neutral-100" />
       </p>
@@ -57,12 +57,12 @@ Wir freuen uns auf eine zahlreiche Teilnahme!
     <legend class="font-bold px-1">Spieler/in 2</legend>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <p class="my-0">
-        <label class="block font-bold mb-1" for="vorname2">Vorname *</label>
+        <label class="block font-bold mb-1" for="vorname2">Vorname 2 *</label>
         <input type="text" id="vorname2" name="spieler2_vorname" required
           class="w-full rounded border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 px-3 py-2 text-neutral-900 dark:text-neutral-100" />
       </p>
       <p class="my-0">
-        <label class="block font-bold mb-1" for="nachname2">Nachname *</label>
+        <label class="block font-bold mb-1" for="nachname2">Nachname 2 *</label>
         <input type="text" id="nachname2" name="spieler2_nachname" required
           class="w-full rounded border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800 px-3 py-2 text-neutral-900 dark:text-neutral-100" />
       </p>
