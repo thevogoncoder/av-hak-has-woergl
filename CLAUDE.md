@@ -113,11 +113,41 @@ See `content/mitgliederanmeldung/index.md` for the full working example with bot
 
 ### Form Notifications
 
-Email notifications per form are managed via the Netlify API (not exposed in the MCP server). Auth token is stored in `~/.netlify/config.json` after `netlify login`. Form IDs can be retrieved via the MCP `get-forms-for-project` tool.
+Email notifications per form are managed via the Netlify API (not exposed in the MCP server).
+
+- **Site:** `whimsical-quokka-302475` — <https://av-hakhas-woergl.at>
+- **Site ID:** `10744c26-5ad0-45f4-b062-5c744d395b4f`
+
+#### Auth token
+
+Stored in `~/.config/netlify/config.json` after `netlify login`. The `users` map can hold
+**several entries** — `netlify logout` leaves stale ones behind and `userId` is often `null`.
+Do not read the first entry blindly; select by email. `netlify status` resolves the active
+user correctly and is the quickest cross-check.
+
+```bash
+TOKEN=$(python3 -c "
+import json, os
+c = json.load(open(os.path.expanduser('~/.config/netlify/config.json')))
+print(next(u['auth']['token'] for u in c['users'].values()
+           if u.get('email') == '<login-email>'))
+")
+```
+
+#### Form IDs
+
+Via the MCP `get-forms-for-project` tool, or directly:
+
+```bash
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "https://api.netlify.com/api/v1/sites/10744c26-5ad0-45f4-b062-5c744d395b4f/forms"
+```
+
+#### Create the notification
 
 ```bash
 curl -s -X POST "https://api.netlify.com/api/v1/hooks" \
-  -H "Authorization: Bearer <token>" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "site_id": "10744c26-5ad0-45f4-b062-5c744d395b4f",
@@ -125,12 +155,24 @@ curl -s -X POST "https://api.netlify.com/api/v1/hooks" \
     "type": "email",
     "event": "submission_created",
     "data": {
-      "email": "<recipient>"
+      "email": "<recipient>",
+      "subject": "[AV] Neue Anmeldung für %{formName}"
     }
   }'
 ```
 
 `form_id` must be at the top level (not inside `data`) for per-form scoping to work.
+The Netlify UI does not expose `subject` — set it via the API.
+
+A site-wide `submission_created` hook to `kontakt@av-hakhas-woergl.at` already exists, so that
+address receives a copy of every form's submissions in addition to any per-form notification.
+
+#### Diagnosing auth failures
+
+- `401` on `/forms` — no or invalid token.
+- `404` on `/forms` — authenticated, but the account has no access to the site.
+- `GET /sites/<id>` returns public metadata **without** auth, so a successful response there
+  proves nothing about the token. Verify with `/user` or `/forms`.
 
 ### Image Processing
 
