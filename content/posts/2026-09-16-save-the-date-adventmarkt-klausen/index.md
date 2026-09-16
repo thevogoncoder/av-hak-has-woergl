@@ -11,9 +11,9 @@ Liebe Vereinsmitglieder!
 
 Unsere diesjährige Fahrt zu einem Adventmarkt führt uns am **28. November 2026** nach **Klausen**!
 
-<!--more-->
-
 Eine detaillierte Ausschreibung folgt zeitnah.
+
+<!--more-->
 
 > [!Note] Save the date
 > Samstag, 28. November 2026 – bitte den Termin schon einmal vormerken!
