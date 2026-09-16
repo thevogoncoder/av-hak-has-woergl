@@ -29,17 +29,18 @@
 
 /* Landing hero section: the theme pads it pt-12/pb-16, rising to
    sm:pt-20/sm:pb-24, which leaves a lot of dead space around a hero that is
-   now just a title and one line of lead. Roughly halve it. Selected via
+   now just a title and one line of lead. The fixed header is already cleared
+   by the theme's min-h-32 spacer, so this padding is purely cosmetic. Selected via
    :has() on the title rather than the utility classes, so this keeps working
    if the theme reshuffles its Tailwind classes. */
 section:has(> .mx-auto > .landing-rise-1) {
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
   padding-bottom: 2rem;
 }
 
 @media (min-width: 640px) {
   section:has(> .mx-auto > .landing-rise-1) {
-    padding-top: 2.5rem;
+    padding-top: 1rem;
     padding-bottom: 3rem;
   }
 }
