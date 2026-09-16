@@ -4,14 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Hugo static site for **Absolventenverein HAK/HAS Wörgl** (German-language alumni association) using the **Blowfish** theme, with **Decap CMS** for content management, deployed on **Netlify**.
+Hugo static site for **Absolventenverein HAK/HAS Wörgl** (German-language alumni association) using the **Blowfish** theme, deployed on **Netlify**. Content is edited directly as Markdown in the repo.
 
 ## Commands
 
 ### Development
 ```bash
 hugo server --bind 0.0.0.0 --baseURL http://localhost:1313   # Dev server (port 1313)
-npx decap-server                                               # CMS local proxy (port 8081)
 ```
 
 ### Build
@@ -25,10 +24,8 @@ No npm/yarn dependencies, linting, or test suite.
 
 - **Hugo** generates static HTML from Markdown content
 - **Blowfish theme** — git submodule in `themes/blowfish/`, provides all base templates and Tailwind CSS styling
-- **Decap CMS 3.0.0** — browser-based editor at `/admin/` (loaded from CDN)
-- **Netlify Identity + Git Gateway** — handles CMS authentication and commits
 - **Goldmark** with `unsafe = true` — raw HTML in Markdown is rendered (used for forms, iframes, custom markup)
-- **Dev Container** — Hugo Extended + Node.js LTS environment (ports 1313 + 8081 forwarded)
+- **Dev Container** — Hugo Extended + Node.js LTS environment (port 1313 forwarded)
 
 ### Key Paths
 
@@ -38,7 +35,6 @@ No npm/yarn dependencies, linting, or test suite.
 | `content/` | Markdown content — homepage, blog posts, standalone pages |
 | `layouts/partials/` | Custom template overrides (see Theme Customization below) |
 | `themes/blowfish/` | Git submodule — **do not edit directly** |
-| `static/admin/` | Decap CMS interface (`index.html`) and collection config (`config.yml`) |
 | `static/img/` | Shared images (logo, background, link logos) |
 | `netlify.toml` | Build settings; deploy preview uses `--buildFuture` flag |
 
@@ -49,10 +45,12 @@ accurate — it is the blast radius to re-check on every theme upgrade.
 
 **Additive extension points** (Blowfish ships no version of these, so they never conflict):
 
-- `partials/extend-head.html` — injects the Netlify Identity widget script
-- `partials/extend-footer.html` — redirects authenticated users to `/admin/`
 - `partials/homepage-cta.html` — "Hermes aktuell" membership call-to-action card
 - `partials/homepage-sponsors.html` — sponsor banner with light/dark logo variants
+
+Blowfish also supports `partials/extend-head.html` and `partials/extend-footer.html` for
+injecting scripts; both calls are `templates.Exists`-guarded, so the files are optional and
+we currently ship neither.
 
 **Real overrides of theme files** (these shadow an upstream file and must be rebased when
 the upstream copy changes):
@@ -102,8 +100,6 @@ Pages that should not appear in listing/taxonomy use `_build: list: never` in fr
 Use `<!--more-->` as the summary divider in posts.
 
 Photo galleries use the Blowfish `{{</* gallery */>}}` shortcode with `<img>` tags and `class="grid-wNN"` for layout.
-
-The CMS collection config is in `static/admin/config.yml` — update this when adding new content fields.
 
 ## Post Types
 

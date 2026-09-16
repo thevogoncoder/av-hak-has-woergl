@@ -1,5 +1,5 @@
 {
-  "name": "Hugo + Decap CMS",
+  "name": "Hugo",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/hugo:1": {
@@ -16,14 +16,10 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers-extra/features/claude-code:2": {}
   },
-  "forwardPorts": [1313, 8081],
+  "forwardPorts": [1313],
   "portsAttributes": {
     "1313": {
       "label": "Hugo Dev Server",
-      "onAutoForward": "notify"
-    },
-    "8081": {
-      "label": "Decap CMS Proxy",
       "onAutoForward": "notify"
     }
   },
@@ -54,6 +50,5 @@
   // Run Hugo dev server with --bind 0.0.0.0 — Hugo defaults to 127.0.0.1,
   // which is unreachable from the host outside the container.
   // Example: hugo server --bind 0.0.0.0 --baseURL http://localhost:1313
-  // Decap CMS local proxy: npx decap-server (runs on port 8081)
   "postCreateCommand": "hugo version && node --version"
 }
