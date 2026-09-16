@@ -7,8 +7,11 @@ enableSearch = true
 enableCodeCopy = true
 defaultBackgroundImage = "img/background.png"
 
+[header]
+layout = "floating"
+
 [homepage]
-layout = "background"
+layout = "landing"
 homepageImage = "img/background.png"
 layoutBackgroundBlur = true
 showRecent = true
