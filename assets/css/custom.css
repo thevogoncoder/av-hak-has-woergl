@@ -19,3 +19,16 @@
   hyphens: manual;
   overflow-wrap: break-word;
 }
+
+/* Landing hero title: the theme's text-5xl/sm:text-7xl is oversized for a
+   long compound name. One step down on each breakpoint. Source order puts
+   this after main.css, so it wins without needing !important; leading is
+   already fixed by the theme's leading-[1.05]. */
+.landing-rise-1 {
+  font-size: 2.25rem;
+}
+@media (min-width: 640px) {
+  .landing-rise-1 {
+    font-size: 3.75rem;
+  }
+}
