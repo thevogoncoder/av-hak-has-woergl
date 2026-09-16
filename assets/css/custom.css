@@ -6,3 +6,16 @@
 #landing-hero-background {
   height: 880px;
 }
+
+/* Landing hero title: "Absolventenverein" is a single 17-character compound
+   that is wider than a phone viewport at text-5xl, and the hero article's
+   overflow-hidden clips it ("Absolventenver..."). The page sets lang="de",
+   so it needs to break. hyphens:manual means the browser breaks ONLY at the
+   soft hyphen (U+00AD) placed in the title, at the compound boundary
+   Absolventen|verein - auto would break by syllable ("Absolven-tenverein").
+   overflow-wrap is the fallback. -webkit- prefix for iOS. */
+.landing-rise-1 {
+  -webkit-hyphens: manual;
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
