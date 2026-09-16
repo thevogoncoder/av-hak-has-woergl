@@ -3,6 +3,7 @@ title: "Ergebnisse Ladinerturnier 2026"
 date: 2026-09-16T10:00:00.000+02:00
 draft: false
 heroStyle: "background"
+imagePosition: "center top"
 ---
 
 Lang is' her, lustig war's, lang hat's gedauert!
