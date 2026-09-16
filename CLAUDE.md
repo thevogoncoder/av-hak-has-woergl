@@ -44,14 +44,49 @@ No npm/yarn dependencies, linting, or test suite.
 
 ### Theme Customization
 
-The site inherits everything from Blowfish and overrides these partials in `layouts/partials/`:
+The site inherits everything from Blowfish and overrides the following. Keep this list
+accurate — it is the blast radius to re-check on every theme upgrade.
 
-- `extend-head.html` — injects Netlify Identity widget script + custom CSS (e.g. `.qr-code` border)
-- `extend-footer.html` — redirects authenticated users to `/admin/`
-- `recent-articles/main.html` — overrides Blowfish's recent articles partial to inject the CTA block
-- `homepage-cta.html` — "Hermes aktuell" membership call-to-action card on the homepage
+**Additive extension points** (Blowfish ships no version of these, so they never conflict):
+
+- `partials/extend-head.html` — injects the Netlify Identity widget script
+- `partials/extend-footer.html` — redirects authenticated users to `/admin/`
+- `partials/homepage-cta.html` — "Hermes aktuell" membership call-to-action card
+- `partials/homepage-sponsors.html` — sponsor banner with light/dark logo variants
+
+**Real overrides of theme files** (these shadow an upstream file and must be rebased when
+the upstream copy changes):
+
+| Override | Upstream base | Our delta |
+|----------|---------------|-----------|
+| `partials/recent-articles/main.html` | same path | appends the `homepage-cta` + `homepage-sponsors` partials |
+| `partials/recent-articles/list.html` | same path | filters out posts whose `hideFromHomeAfter` has passed |
+| `shortcodes/carousel.html` | same path | adds the `maxSize` param → `images.AutoOrient` + fit/WebP processing |
+| `shortcodes/gallery.html` | same path | adds the `maxSize` param → `images.AutoOrient` + fit/WebP processing |
 
 Theme configuration (color scheme, homepage layout, dark mode, search, etc.) is controlled via `config/_default/params.toml`.
+
+### Upgrading the theme
+
+Blowfish pins a supported Hugo window in its `config.toml` (`module.hugoVersion` min/max).
+Keep all three in sync or the build warns and may break:
+
+1. `themes/blowfish` submodule tag
+2. `HUGO_VERSION` in `netlify.toml`
+3. `ghcr.io/devcontainers/features/hugo` version in `.devcontainer/devcontainer.json`
+
+To rebase an override, 3-way merge it rather than hand-patching — this reliably keeps our
+delta and picks up upstream's changes:
+
+```bash
+git show <old-tag>:layouts/shortcodes/gallery.html > /tmp/base.html   # run in themes/blowfish
+git show <new-tag>:layouts/shortcodes/gallery.html > /tmp/new.html
+git merge-file -p layouts/shortcodes/gallery.html /tmp/base.html /tmp/new.html > merged.html
+```
+
+**Stage the submodule pointer** (`git add themes/blowfish`) after checking out a new tag.
+Netlify builds run `git submodule update --init --recursive`, which resets the submodule to
+the commit recorded in the parent repo — an unstaged upgrade silently builds the old theme.
 
 ### Content Model
 
@@ -109,7 +144,9 @@ Netlify detects forms at deploy time via the `data-netlify="true"` attribute. Tw
 - **Honeypot spam protection**: Add `netlify-honeypot="bot-field"` to the `<form>` tag and include a hidden field `<input name="bot-field" />`.
 - **reCAPTCHA**: Add `<div data-netlify-recaptcha="true"></div>` inside the form for built-in captcha.
 
-See `content/mitgliederanmeldung/index.md` for the full working example with both honeypot and reCAPTCHA.
+See `content/mitgliederanmeldung.md` for a full worked example with both honeypot and reCAPTCHA.
+Note it is currently commented out — that page now embeds a Vereinsplaner iframe instead — so it
+serves as a reference template, not a live form.
 
 ### Form Notifications
 

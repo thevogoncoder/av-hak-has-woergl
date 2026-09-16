@@ -1,5 +1,5 @@
-languageCode = "de"
-languageName = "Deutsch"
+locale = "de"
+label = "Deutsch"
 weight = 1
 title = "Absolventenverein HAK/HAS Wörgl"
 
