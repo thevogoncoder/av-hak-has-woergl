@@ -1,0 +1,8 @@
+/* Landing hero: let the background image reach further down the page.
+   Blowfish sets h-[640px] on this element, which sits too high now that
+   the floating header occupies the top of the viewport. The .hero-canvas-fade
+   mask is percentage-based (black 20% -> transparent 92%), so it scales with
+   this height and the dissolve stays proportional. */
+#landing-hero-background {
+  height: 880px;
+}
