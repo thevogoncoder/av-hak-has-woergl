@@ -7,28 +7,39 @@
   height: 880px;
 }
 
-/* Landing hero title: "Absolventenverein" is a single 17-character compound
-   that is wider than a phone viewport at text-5xl, and the hero article's
-   overflow-hidden clips it ("Absolventenver..."). The page sets lang="de",
-   so it needs to break. hyphens:manual means the browser breaks ONLY at the
-   soft hyphen (U+00AD) placed in the title, at the compound boundary
-   Absolventen|verein - auto would break by syllable ("Absolven-tenverein").
-   overflow-wrap is the fallback. -webkit- prefix for iOS. */
+/* Landing hero title. Two problems with the theme's default here:
+   "Absolventenverein" is a single 17-character compound that cannot wrap, and
+   the hero article's overflow-hidden would clip it; and text-5xl/sm:text-7xl
+   is oversized for a name this long. Below 640px the size is fluid so it
+   tracks the real viewport rather than assuming a phone width. The vw term is
+   what governs at typical phone widths; the floor only binds below ~330px. With
+   overflow-wrap as a safety net so an over-long title wraps instead of being
+   cut off. Source order puts this after main.css, so no !important is needed;
+   leading stays the theme's leading-[1.05]. */
 .landing-rise-1 {
-  -webkit-hyphens: manual;
-  hyphens: manual;
+  font-size: clamp(1.875rem, 9vw, 2.5rem);
   overflow-wrap: break-word;
 }
 
-/* Landing hero title: the theme's text-5xl/sm:text-7xl is oversized for a
-   long compound name. One step down on each breakpoint. Source order puts
-   this after main.css, so it wins without needing !important; leading is
-   already fixed by the theme's leading-[1.05]. */
-.landing-rise-1 {
-  font-size: 2.25rem;
-}
 @media (min-width: 640px) {
   .landing-rise-1 {
     font-size: 3.75rem;
+  }
+}
+
+/* Landing hero section: the theme pads it pt-12/pb-16, rising to
+   sm:pt-20/sm:pb-24, which leaves a lot of dead space around a hero that is
+   now just a title and one line of lead. Roughly halve it. Selected via
+   :has() on the title rather than the utility classes, so this keeps working
+   if the theme reshuffles its Tailwind classes. */
+section:has(> .mx-auto > .landing-rise-1) {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  section:has(> .mx-auto > .landing-rise-1) {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
   }
 }
