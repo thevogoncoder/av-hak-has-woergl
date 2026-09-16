@@ -4,3 +4,6 @@ resources/
 
 # Local Netlify folder
 .netlify
+
+# Local staging area for source documents (not published)
+_inbox/

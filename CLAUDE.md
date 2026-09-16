@@ -79,6 +79,10 @@ There are two kinds of posts published on the website: **events** and **general 
 - Always use `heroStyle: "background"` in the front matter unless otherwise instructed.
 - If a single image is provided, use it as the `featured` image for the post.
 - If multiple images are provided, use the first as `featured` and add a `{{</* carousel */>}}` shortcode at the end of the post (unless otherwise instructed).
+- Convert every image used in a post to WebP before adding it to the page bundle — fit within 1200x1200, quality 82, EXIF auto-oriented, metadata stripped. Commit only the `.webp`, not the original JPEG/PNG:
+  ```bash
+  magick <source> -auto-orient -resize 1200x1200\> -quality 82 -define webp:method=6 -strip <name>.webp
+  ```
 - Use `<!--more-->` as the summary divider.
 - When a reference text or document is given, use the provided text as closely as possible (fixing typos is fine), but **do not** replicate its styling — fit the content into the site's Markdown/shortcode conventions instead.
 
