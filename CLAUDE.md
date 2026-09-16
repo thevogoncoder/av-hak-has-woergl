@@ -156,13 +156,14 @@ curl -s -X POST "https://api.netlify.com/api/v1/hooks" \
     "event": "submission_created",
     "data": {
       "email": "<recipient>",
-      "subject": "[AV] Neue Anmeldung für %{formName}"
+      "subject_template": "[AV] Neue Anmeldung für %{formName}"
     }
   }'
 ```
 
 `form_id` must be at the top level (not inside `data`) for per-form scoping to work.
-The Netlify UI does not expose `subject` — set it via the API.
+The subject field is named `subject_template` (not `subject`) — it is easy to read back as
+missing if you check the wrong key. It can also be set in the Netlify UI.
 
 A site-wide `submission_created` hook to `kontakt@av-hakhas-woergl.at` already exists, so that
 address receives a copy of every form's submissions in addition to any per-form notification.
