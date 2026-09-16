@@ -23,7 +23,7 @@ Diese Fragen können wir am Dienstag, 29.09.2026 in der Zone Wörgl stellen. Bei
 | ---------- | ---------------------------------------- |
 | **Termin** | Dienstag, 29. September 2026             |
 | **Beginn** | 19:00 Uhr                                |
-| **Ort**    | „Zone" in Wörgl, Brixentaler Straße 23   |
+| **Ort**    | "Zone" in Wörgl, Brixentaler Straße 23   |
 | **Kosten** | Die Kosten für den Kursabend übernimmt der Absolventenverein. |
 
 ## Anmeldung

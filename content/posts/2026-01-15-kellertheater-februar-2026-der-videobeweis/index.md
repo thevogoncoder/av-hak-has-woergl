@@ -9,7 +9,7 @@ heroStyle: "background"
 
 Liebe Theaterfreunde!
 
-Aufgrund der begeisterten Rückmeldungen auf das Theaterstück „Die Diva und das Meer" im Vorjahr möchten wir euch heuer das Stück „Der Videobeweis" anbieten.
+Aufgrund der begeisterten Rückmeldungen auf das Theaterstück "Die Diva und das Meer" im Vorjahr möchten wir euch heuer das Stück "Der Videobeweis" anbieten.
 
 <!--more-->
 

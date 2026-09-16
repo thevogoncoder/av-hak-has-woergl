@@ -7,7 +7,7 @@ heroStyle: "background"
 
 Lang is' her, lustig war's, lang hat's gedauert!
 
-Hier die Platzierungen unseres Ladinerturniers vom 28. März 2026 im „Kirchenwirt" in Wörgl.
+Hier die Platzierungen unseres Ladinerturniers vom 28. März 2026 im "Kirchenwirt" in Wörgl.
 
 <!--more-->
 

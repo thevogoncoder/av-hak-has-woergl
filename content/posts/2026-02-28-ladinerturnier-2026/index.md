@@ -12,7 +12,7 @@ Endlich ist es wieder soweit! Wir stehen mit den Spielkarten in den Startlöcher
 
 Als Lokal hat sich der "Kirchenwirt" in Wörgl bestens bewährt, deshalb treffen wir uns auch heuer wieder dort.
 
-Ein Stüberl ist für uns reserviert und selbstverständlich wird es wieder Zeit für eine köstliche „Fütterung der Kartenhaie" geben.
+Ein Stüberl ist für uns reserviert und selbstverständlich wird es wieder Zeit für eine köstliche "Fütterung der Kartenhaie" geben.
 
 Wer also Zeit hat, ein wenig über die Regeln dieses Kartenspiels Bescheid weiß und sich gerne mit alten und neuen Freunden messen möchte - jetzt anmelden!
 
